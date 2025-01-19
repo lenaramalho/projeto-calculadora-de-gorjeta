@@ -4,7 +4,7 @@ def exibir_nome_programa():
     print('Calculadora de Gorjeta')
 
 def valor_da_conta():
-    valor_conta = float(input('Qual é o valor total da compra? R$ '))
+    valor_conta = float(input('Qual é o valor total da conta? R$ '))
     return valor_conta
 
 def escolher_gorjeta():
@@ -16,7 +16,7 @@ def escolher_gorjeta():
         print('[4] 0% (não oferecer gorjeta)')
         try:
             escolha_gorjeta = int(input('Quanto gostaria de dar de gorjeta? '))
-            if escolha_gorjeta in [1, 2, 3, 4]:  # Se a opção for válida, sai do loop
+            if escolha_gorjeta in [1, 2, 3, 4]:
                 return escolha_gorjeta
             else:
                 print("\nOpção inválida! Tente novamente.\n")
@@ -33,7 +33,7 @@ def calcular_gorjeta(valor_conta, escolha_gorjeta):
         return valor_conta * 0.20
     elif escolha_gorjeta == 4:
         return 0
-    
+
 def main():
     os.system('cls')  
     exibir_nome_programa()  
@@ -43,13 +43,17 @@ def main():
     
     gorjeta = calcular_gorjeta(valor_conta, escolha_gorjeta)  
     
-    
     total = valor_conta + gorjeta
-    
     
     print(f'\nValor da conta: R$ {valor_conta:.2f}')
     print(f'Gorjeta escolhida: R$ {gorjeta:.2f}')
     print(f'Total a pagar: R$ {total:.2f}')
+
+    quantidade_pagantes = int(input('\nA conta será paga por quantas pessoas? '))
+    divisao_conta = total / quantidade_pagantes
+
+    print(f'\nO valor por pessoa será: R$ {divisao_conta:.2f}')
+    print('Obrigado por usar a Calculadora de Gorjeta. Até logo!')
 
 
 if __name__ == "__main__":
